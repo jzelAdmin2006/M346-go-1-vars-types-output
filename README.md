@@ -10,7 +10,10 @@ Beim Programmieren in Go sind vorab einige wichtige Sachen zu berücksichtigen:
   unterschieden. Man verwendet `CamelCase` (und nicht `snake_case`).
 - Werden Variablen deklariert aber nirgends verwendet, kann das Programm nicht
   kompiliert werden. Damit soll sichergestellt werden, dass sich keine unnötigen
-  Variablen in den Code einschleichen.
+  Variablen in den Code einschleichen. Für diesen ersten Teil ist es also nötig,
+  die deklarierten Variablen im Verlauf des Programms einmal zu verwenden, etwa
+  indem man sie mit `fmt.Println()` ausgibt: `fmt.Println(a, b, c)`, falls man
+  die Variablen `a`, `b` und `c` deklariert hat.
 
 ## Variablen
 
