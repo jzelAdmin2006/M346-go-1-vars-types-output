@@ -17,7 +17,8 @@ Beim Programmieren in Go sind vorab einige wichtige Sachen zu berücksichtigen:
 
 ## Variablen
 
-*Variablen* werden mit dem Schlüsselwort `var` deklariert:
+*Variablen* ([Spec](https://go.dev/ref/spec#Variables)) werden mit dem
+Schlüsselwort `var` deklariert:
 
 ```go
 var [Bezeichner] [Datentyp]
@@ -80,7 +81,8 @@ d, e, f := 2, "Ho", true
 
 ### Konstanten
 
-*Konstanten* lassen sich mit dem Schlüsselwort `const` definieren:
+*Konstanten* ([Spec](https://go.dev/ref/spec#Constants)) lassen sich mit dem
+Schlüsselwort `const` definieren:
 
 ```go
 const [Bezeichner] [Datentyp] = [Wert]
@@ -101,13 +103,50 @@ ermittelt werden können.
 
 ## Datentypen
 
-TODO
+In Go stehen u.a. die folgenden (primitiven) *Datentypen*
+([Spec](https://go.dev/ref/spec#Types)) zur Verfügung:
 
-    int int8 int16 int32 int64
-    uint uint8 uint16 uint32 uint64
-    float32 float64
-    bool
-    string
-    error
-    byte -> uint8?
-    rune -> uint32?
+- Zahlen
+    - Ganzzahlen (_integer_)
+        - vorzeichenbehaftet (_signed_): `int`, `int8`, `int16`, `int32`, `int64`
+        - ohne Vorzeichen (_unsigned_): `uint`, `uint8`, `uint16`, `uint32`, `uint64`
+            - `byte` ist ein Alias für `uint8`
+        - Die Zahl steht jeweils für die Anzahl verwendeter Bits.
+        - Bei `int` und `uint` verwendet der Compiler die _native_ Anzahl Bytes
+          der Architektur (z.B. 64 Bits bei `amd64`)
+    - Gleitkommazahlen: `float32` und `float64`
+- Wahrheitswerte (_boolean_): `bool` mit den Werten `true` und `false`
+- Zeichen: `rune` (ein Unicode-Zeichen und Alias für `int32`)
+- Zeichenketten: `string`
+
+Eine `rune` wird mit dem Wert `'0'` initialisiert, ein `string` mit der leeren
+Zeichenkette `""`. Ein `string` besteht aus `rune`s.
+
+Beispiel:
+
+```go
+var rooms uint8 = 7
+var amount uint64 = 10_000_000
+var result int64 = 1e9
+
+var g float32 = 9.81
+var pi float64 = 3.141592653589793
+
+var ready bool = false
+
+var ellipsis rune = '…'
+var meal string = "Smørrebrød"
+var author string = "Достоевский"
+
+fmt.Println(rooms, amount, result, g, pi, ready, ellipsis, meal, author)
+```
+
+Ausgabe:
+
+    7 10000000 1000000000 9.81 3.141592653589793 false 8230 Smørrebrød Достоевский
+
+- `_` kann als Tausendertrennzeichen verwendet werden.
+- Die Exponentialschreibweise `1e9` bedeutet: 1 * 10^9 (eine Milliarde bzw. eine
+  Eins mit neun Nullen).
+- In Go können Unicode-Zeichen verwendet werden. Eine `rune` ist ein sogenannter
+  _Unicode Code Point_; ein `string` besteht aus mehreren `rune`s.
