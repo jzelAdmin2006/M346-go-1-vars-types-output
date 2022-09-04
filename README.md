@@ -150,3 +150,116 @@ Ausgabe:
   Eins mit neun Nullen).
 - In Go können Unicode-Zeichen verwendet werden. Eine `rune` ist ein sogenannter
   _Unicode Code Point_; ein `string` besteht aus mehreren `rune`s.
+
+## Formatierte Ausgabe
+
+Das Package `fmt` ([Doc](https://pkg.go.dev/fmt)) stellt Funktionen zur
+formatierten Ausgabe von Werten zur Verfügung. Die Funktionen mit dem Suffix `f`
+(z.B. `Printf`) erwarten als erstes Argument einen Format-String; als weitere
+Argumente werden die auszugebenden Ausdrücke erwartet.
+
+Beispiel:
+
+```go
+var x byte = 129
+fmt.Printf("%d %o %b\n", x, x, x)
+
+var y int = 0xdeadbeef
+fmt.Printf("%d %x %X\n", y, y, y)
+
+var z float64 = 10.0 / 3.0
+fmt.Printf("%.5f %10.5f %1.1f\n", z, z, z)
+
+var ready bool = false
+fmt.Printf("%t %v\n", ready, ready)
+
+var ellipsis rune = '…'
+fmt.Printf("%d %c %U\n", ellipsis, ellipsis, ellipsis)
+
+var name string = "Достоевский"
+fmt.Printf("%s %q %v\n", name, name, name)
+```
+
+Ausgabe:
+
+    129 201 10000001
+    3735928559 deadbeef DEADBEEF
+    3.33333    3.33333 3.3
+    false false
+    8230 … U+2026
+    Достоевский "Достоевский" Достоевский
+
+- Ganzzahlen können dezimal (`%d`), oktal (`%o`), binär (`%b`) oder hexadezimal
+  (`%x` bzw. `%X`) ausgegeben werden.
+- Bei Gleitkommazahlen kann die Länge links und rechts vom Komma separat
+  spezifiziert werden (`%X.Yf`).
+- Booleans können mit `%t` als `true` oder `false` ausgegeben werden.
+- Eine `rune` kann als dezimaler Wert, als Zeichen oder in Unicode-Notation
+  (Code Point) ausgegeben werden.
+- Mithilfe von `%q` kann ein Wert in Go-Syntax ausgegeben werden.
+- Mit `%v` lassen sich alle Werte ausgeben.
+
+### Standardausgabe, Standardfehler
+
+Bei Unix-artigen Betriebssystemen erfolgt der Dateizugriff über sogenannte _File
+Handles_, welche von einer Zahl repräsentiert werden. Jedes Programm, auch wenn
+es keine Dateien öffnet, verfügt über die folgende File Handles:
+
+- `0` (`os.Stdin`): Standardeingabe
+- `1` (`os.Stdout`): Standardausgabe
+- `2` (`os.Stderr`): Standardfehler
+
+Funktionen im `fmt`-Modul mit dem Präfix `F` erwarten als ersten Parameter einen
+File Handle:
+
+```go
+fmt.Fprintln(os.Stdout, "Hello, Output!")
+fmt.Fprintln(os.Stderr, "Hello, Error!")
+```
+
+Standardausgabe und -fehler erfolgen normalerweise aufs Terminalfenster, sodass
+man die Ausgaben auf diese Handles nicht ohne Weiteres unterscheiden kann:
+
+    $ go run main.go
+    Hello, Output!
+    Hello, Error!
+
+Eine Unix-Shell erlaubt jedoch die Umleitung via `>` (`stdout`) und `2>`
+(`stderr`):
+
+    $ go run main.go >out.txt
+    Hello, Error!
+    $ cat out.txt
+    Hello, Output!
+
+    $ go run main.go 2>err.txt
+    Hello, Output!
+    $ cat err.txt
+    Hello, Error!
+
+Will man beide Ausgaben in die gleiche Datei umleiten, steht der Operator `2>&1`
+zur Verfügung:
+
+    $ go run main.go >out.txt 2>&1
+    $ cat out.txt
+    Hello, Output!
+    Hello, Error!
+
+Dieser Mechanismus wird gebraucht, um verschiedenartige Ausgaben des gleichen
+Programms an verschiedene Stellen zu schreiben. Beispielsweise soll der Anwender
+die Standardausgabe direkt sehen; Fehlermeldungen sollen jedoch nur in der
+Standardfehlerausgabe erscheinen.
+
+### Ausgabe in einen String
+
+Die Funktionen mit dem Präfix `S` schreiben den formatierten Wert nicht auf die
+Standardausgabe, sondern geben einen String zurück:
+
+```go
+result := fmt.Sprintf("%.3f", 10.0/3.0)
+fmt.Printf("10 divided by 3 is %s\n", result)
+```
+
+Ausgabe:
+
+    10 divided by 3 is 3.333
