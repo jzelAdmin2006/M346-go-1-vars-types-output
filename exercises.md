@@ -44,3 +44,27 @@ Rufe Sie anschliessend das Programm so auf, dass die Augenzahl in die Datei
 `eyes.txt` geschrieben wird, und der Zeitpunkt in die Datei `dice.log`. Ergänzen
 Sie den Kommentar unten am Programm um diesen Aufruf entsprechend zu
 dokumentieren.
+
+## Unterlagen
+
+Durchstöbern Sie bei Gelegenheit die folgenden Webseiten:
+
+- [go.dev](https://go.dev/): Die offizielle Webseite von Go
+- [go.dev/doc](https://go.dev/doc/): Die offizielle Dokumentation zu Go
+- [pkg.go.dev](https://pkg.go.dev/): Suche nach Packages
+- [The Go Playground](https://go.dev/play/): Interaktive
+  Online-Entwicklungsumgebung für kleine Beispiele
+- [Go by Example](https://gobyexample.com/): Beispiele zu verschiedenen
+  Bereichen von Go
+
+Geben Sie in der Kommandozeile die folgenden Befehle ein:
+
+- `go doc`
+- `go doc fmt`
+- `go doc fmt.Println`
+
+Machen Sie sich mit dieser Form der Dokumentation vertraut und betrachten Sie
+ein paar weitere Funktionen aus dem `fmt`-Package.
+
+Sie können mit den Pfeiltasten durch die Ausgabe navigieren. Mit `q` können Sie
+die Anzeige verlassen.
