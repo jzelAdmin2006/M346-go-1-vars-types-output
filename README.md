@@ -263,3 +263,21 @@ fmt.Printf("10 divided by 3 is %s\n", result)
 Ausgabe:
 
     10 divided by 3 is 3.333
+
+## Kommentare
+
+Kommentare beginnend mit `//` erstrecken sich bis zum Zeilenende.
+
+Mehrzeilige Kommentare beginnen mit `/*` und enden mit `*/`.
+
+Beispiel:
+
+```go
+var g float32 = 9.81 // approximation of the gravity constant
+
+/* these variables are used
+   for some intermediary
+   computations to be used
+   later in the program. */
+var a, b, c int
+```
