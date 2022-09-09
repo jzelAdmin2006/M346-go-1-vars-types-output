@@ -1,1 +1,1 @@
-the dice was rolled at 2022-09-09 13:57:46.184335364 +0200 CEST m=+0.000039616
+the dice shows 2 eyes

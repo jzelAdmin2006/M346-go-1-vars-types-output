@@ -18,6 +18,6 @@ func main() {
 	fmt.Fprintln(os.Stderr, "the dice was rolled at", when)
 
 	// TODO: how to write the output into eyes.txt and dice.log?
-	// go run ex3/main.go > dice.log
-	// go run ex3/main.go 2> eyes.txt
+	// go run ex3/main.go 2> dice.log
+	// go run ex3/main.go > eyes.txt
 }
