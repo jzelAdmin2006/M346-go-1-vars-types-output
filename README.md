@@ -5,9 +5,10 @@ Beim Programmieren in Go sind vorab einige wichtige Sachen zu berücksichtigen:
 - Go ist eine stark typisierte Programmiersprache. Variablen haben einen
   bestimmen Datentyp, und können nur Werte dieses einen Typs annehmen.
 - *Bezeichner* (von Variablen, Konstanten, Typen usw.) beginnen mit einem
-  Buchstaben oder einem Unterstrich (`_`), worauf weitere Buchstaben, Ziffern
-  und Underscores folgen können. Es wird zwischen Gross- und Kleinschreibung
-  unterschieden. Man verwendet `CamelCase` (und nicht `snake_case`).
+  Buchstaben oder einem Unterstrich (Underscore, `_`), worauf weitere
+  Buchstaben, Ziffern und Underscores folgen können. Es wird zwischen Gross-
+  und Kleinschreibung unterschieden. Man verwendet `CamelCase` (und nicht
+  `snake_case` oder `kebab-case`).
 - Werden Variablen deklariert aber nirgends verwendet, kann das Programm nicht
   kompiliert werden. Damit soll sichergestellt werden, dass sich keine unnötigen
   Variablen in den Code einschleichen. Für diesen ersten Teil ist es also nötig,
@@ -24,7 +25,7 @@ Schlüsselwort `var` deklariert:
 var [Bezeichner] [Datentyp]
 ```
 
-Im Gegensatz zu vielen anderen Programmiersprachen wird zuerst der Bezeichner,
+Im Gegensatz zu vielen anderen Programmiersprachen wird zuerst der Bezeichner
 und erst dann der Datentyp angegeben!
 
 Beispiele:

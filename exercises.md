@@ -1,7 +1,8 @@
 # Aufgaben
 
-**Erstellen Sie einen Fork von diesem Repository und reichen Sie Ihre Lösungen
-per Pull Request ein!**
+1. **Erstellen Sie einen Fork von diesem Repository!**
+2. **Klonen Sie Ihren Fork, nicht das Original-Repository!**
+3. **Reichen Sie Ihre Lösungen per Pull Request ein!**
 
 Die folgende Aufgaben können Sie direkt in die angegebene Datei lösen. Beachten
 Sie hierzu die `// TODO: `-Kommentare im Code und die folgenden Instruktionen:
@@ -9,8 +10,8 @@ Sie hierzu die `// TODO: `-Kommentare im Code und die folgenden Instruktionen:
 ## Steckbrief
 
 `ex1/main.go`: Es werden verschiedene Variablen ausgegeben, die jedoch noch
-nicht deklariert und initialisiert wurden. Deklarieren Sie die Variablen mit
-einem passenden Datentyp und verwenden Sie Ihre persönlichen Angaben um die
+nicht deklariert und initialisiert worden sind. Deklarieren Sie die Variablen
+mit einem passenden Datentyp und verwenden Sie Ihre persönlichen Angaben um die
 Variablen zu initialisieren.
 
 Tipp: Das Sternzeichen können Sie mit der Unicode-Schreibweise `'\uXXXX'`
@@ -33,7 +34,7 @@ ein Blatt Papier und stellen Sie die Formeln entsprechend um.
 
 `ex3/main.go`: Das Programm würfelt eine zufällige Zahl (zwischen 1 und 6) und
 zeigt diese an. Weiter zeigt das Programm an, wann die Zahl gewürfelt worden
-ist. Anstelle von `fmt.Prinln` verwenden Sie die Funktion `fmt.Fprintln` um die
+ist. Anstelle von `fmt.Println` verwenden Sie die Funktion `fmt.Fprintln` um die
 beiden Informationen auszugeben.
 
 Als erstes Argument müssen Sie hierzu `os.Stdout` oder `os.Stderr` verwenden.
