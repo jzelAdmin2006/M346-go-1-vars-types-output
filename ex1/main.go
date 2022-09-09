@@ -6,10 +6,10 @@ func main() {
 	// TODO: Declare and initialize the variables being used in the output!
 	var firstName string = "Johannes"
 	var lastName string = "Zeller"
-	var dayOfBirth int = 1
-	var monthOfBirth int = 4
-	var yearOfBirth int = 2006
-	var numberOfSiblings int = 2
+	var dayOfBirth byte = 1
+	var monthOfBirth byte = 4
+	var yearOfBirth uint16 = 2006
+	var numberOfSiblings byte = 2
 	var heightInMeters float32 = 1.85
 	var zodiacSign rune = '\u2648'
 
